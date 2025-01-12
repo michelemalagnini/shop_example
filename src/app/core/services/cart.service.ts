@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { CartItem } from '../../app.component';
 
 @Injectable({
   providedIn: 'root',
@@ -17,4 +16,18 @@ export class CartService {
       return acc + curr.product.cost;
     }, 0);
   }
+}
+
+export interface Product {
+  id: number;
+  name: string;
+  cost: number;
+  oldCost: number;
+  img: string;
+  variants: string[];
+}
+
+export interface CartItem {
+  product: Product;
+  variant: string;
 }
