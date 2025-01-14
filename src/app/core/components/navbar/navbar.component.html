@@ -1,4 +1,4 @@
-<p>navbar works!</p>
+<!-- <p>navbar works!</p>
 <button 
 routerLink="/home"
 routerLinkActive="active-link"
@@ -6,4 +6,49 @@ routerLinkActive="active-link"
 >HOME</button>
 <button routerLink="/cart"     routerLinkActive="active-link"
 >CART</button>
-  
+   -->
+
+<div class="row align-items-center">
+  <!-- Colonna HEADER a sinistra -->
+  <div class="col">
+    <div class="header text-start">
+      <h3>Products</h3>
+      <h2>My shop cart</h2>
+    </div>
+  </div>
+  <!-- Colonna CART a destra -->
+  <div class="col-auto ms-auto">
+    <!-- Contenitore circolare grigio per l'icona -->
+    <!-- Bottone che apre la modale -->
+    <button
+      class="btn btn-light position-relative cart-circle"
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#cartModal"
+    >
+      <!-- SVG del carrello -->
+      <svg
+        class="cart-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5
+            M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17
+            m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2
+            a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+
+      <!-- Badge che mostra il conteggio -->
+      <span class="cart-badge">
+        {{ cartService.items.length }}
+      </span>
+    </button>
+  </div>
+</div>
