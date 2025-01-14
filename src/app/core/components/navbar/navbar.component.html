@@ -11,6 +11,7 @@
       type="button"
       data-bs-toggle="modal"
       data-bs-target="#cartModal"
+      (click)="openModal()"
     >
       <!-- SVG del carrello -->
       <svg
@@ -37,3 +38,39 @@
     </button>
   </div>
 </nav>
+
+<!-- Modale personalizzata: si mostra solo se showModal === true -->
+<div class="custom-modal-overlay" *ngIf="showModal" (click)="closeModal()">
+  <div class="custom-modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h5>Cart Summary</h5>
+      <button class="close-btn" (click)="closeModal()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div *ngIf="cartService.items.length > 0; else emptyCart">
+        <div *ngFor="let item of cartService.items" class="mb-2">
+          <div class="d-flex justify-content-between">
+            <span>{{ item.product.name }} - {{ item.variant }}</span>
+            <span>€ {{ item.product.cost }}</span>
+          </div>
+        </div>
+        <hr />
+        <h6 class="text-end">
+          <b>Total:</b> € {{ cartService.getTotalCart() }}
+        </h6>
+      </div>
+
+      <!-- Se il carrello è vuoto -->
+      <ng-template #emptyCart>
+        <p>Empty cart</p>
+      </ng-template>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-confirm" (click)="navigateToCart()">
+        Vai al carrello
+      </button>
+    </div>
+  </div>
+</div>

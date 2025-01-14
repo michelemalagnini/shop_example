@@ -28,3 +28,86 @@
   text-align: center;
   font-size: 0.75rem;
 }
+
+/* Navbar di esempio */
+.navbar {
+  background-color: #f5f5f5;
+  padding: 1rem;
+}
+
+.btn-cart {
+  background-color: #ccc;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+}
+
+/* Overlay che copre lo schermo */
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semitrasparenza */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Contenitore centrale della modale */
+.custom-modal-container {
+  background-color: #fff;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Header della modale */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Footer della modale */
+.modal-footer {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.btn-confirm {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Solo per simulare un layout di testo style Angular */
+.d-flex {
+  display: flex;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.text-end {
+  text-align: end;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
