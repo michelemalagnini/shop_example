@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CartItem } from '../../model/cart-item.model';
 
 @Injectable({
   providedIn: 'root',
@@ -6,28 +7,15 @@ import { Injectable } from '@angular/core';
 export class CartService {
   items: CartItem[] = [];
 
-  addToCart(cartitem: CartItem) {
-    if (cartitem) {
-      this.items = [...this.items, cartitem];
+  addToCart(cartItem: CartItem) {
+    if (cartItem) {
+      this.items = [...this.items, cartItem];
     }
   }
+
   getTotalCart() {
     return this.items.reduce((acc: number, curr: CartItem) => {
       return acc + curr.product.cost;
     }, 0);
   }
-}
-
-export interface Product {
-  id: number;
-  name: string;
-  cost: number;
-  oldCost: number;
-  img: string;
-  variants: string[];
-}
-
-export interface CartItem {
-  product: Product;
-  variant: string;
 }

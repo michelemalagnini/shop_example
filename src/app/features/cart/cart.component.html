@@ -1,1 +1,19 @@
-<p>cart works!</p>
+<div class="container mt-4">
+  <h2>Carrello</h2>
+
+  <div *ngIf="cartService.items.length > 0; else emptyCart">
+    <div *ngFor="let item of cartService.items" class="mb-2">
+      <div class="d-flex justify-content-between">
+        <span>{{ item.product.name }} - {{ item.variant }}</span>
+        <span>€ {{ item.product.cost }}</span>
+      </div>
+    </div>
+
+    <hr />
+    <h6 class="text-end"><b>Total:</b> € {{ cartService.getTotalCart() }}</h6>
+  </div>
+
+  <ng-template #emptyCart>
+    <p>Il carrello è vuoto.</p>
+  </ng-template>
+</div>

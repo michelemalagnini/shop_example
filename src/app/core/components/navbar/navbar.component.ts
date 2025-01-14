@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 
@@ -10,5 +10,7 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
+  @Input() title?: string;
+
   cartService = inject(CartService);
 }
